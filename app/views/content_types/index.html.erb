@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Content types</h1>
+
+<div id="content_types">
+  <% @content_types.each do |content_type| %>
+    <%= render content_type %>
+    <p>
+      <%= link_to "Show this content type", content_type %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New content type", new_content_type_path %>

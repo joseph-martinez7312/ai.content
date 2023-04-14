@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @content_type %>
+
+<div>
+  <%= link_to "Edit this content type", edit_content_type_path(@content_type) %> |
+  <%= link_to "Back to content types", content_types_path %>
+
+  <%= button_to "Destroy this content type", @content_type, method: :delete %>
+</div>

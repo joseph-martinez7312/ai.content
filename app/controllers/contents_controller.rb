@@ -1,7 +1,8 @@
 class ContentsController < ApplicationController
-  before_action :set_content, only: %i[ show edit update destroy generate_content ]
+  before_action :set_content, only: %i[ show edit update destroy generate ]
 
   def index
+    @content_types = ContentType.all.pluck(:content_type)
     @contents = Content.all
   end
 
@@ -50,7 +51,7 @@ class ContentsController < ApplicationController
     end
   end
 
-  def generate_content
+  def generate
     OpenAI.configure do |config|
        config.access_token = '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'
     end
@@ -59,9 +60,6 @@ class ContentsController < ApplicationController
 
     prompt_keys = { 
       output_language: params[:output_language],
-      business_name: @content.account.business_name,
-      business_phone: @content.account.business_phone,
-      business_website: @content.account.business_website, 
       business_ideal_customer: @content.business_ideal_customer,
       business_problem_solved: @content.business_problem_solved,
       content_topic: @content.content_topic,
@@ -70,7 +68,7 @@ class ContentsController < ApplicationController
       business_customer_subtype: @content.business_customer_subtype,
       business_customer_subtype_result: @content.business_customer_subtype_result
     }
-
+    
     prompt_keys.keys.each do |key|
       prompt_to_send = prompt_to_send.gsub("<#{key.to_s}>", prompt_keys[key].to_s)
     end
@@ -83,11 +81,18 @@ class ContentsController < ApplicationController
         max_tokens: 2500
       }
     )
-    @account_content_result = @content.account_content_results.create(account_content_results_params(response))
-    @account_content_result.update(output_language: params[:output_language])
-    @account_content_result.update(hide_content: false)
-    @account_content_result.update(output_type: params[:output_type])
-    redirect_to account_account_content_path(@content.account)
+    redirect_to content_path(@content)
+  end
+
+  def get_action(content_topic)
+    case content_topic
+    when "Problems"
+      return "avoid"
+    when "Secrets"
+      return "know"
+    when "Things"
+      return "accomplish"
+    end
   end
 
   private

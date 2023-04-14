@@ -2,9 +2,6 @@
   <td class="p-3 text-center border">The top <%= content.topic_quantity %> <%= content.content_topic %> that every <%= content.business_customer_subtype %> must know/avoid in order to <%= content.business_customer_subtype_result %></td>
   <td class="text-center border">
     <%= form_tag generate_content_path(content), method: :post do %>
-      <% if @languages %>
-      <%= select_tag "output_language", options_for_select(@languages) %>  
-      <% end %>
       <% if @content_types %>
         <%= select_tag "output_type", options_for_select(@content_types) %>
       <% end %>

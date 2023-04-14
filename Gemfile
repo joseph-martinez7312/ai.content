@@ -73,3 +73,4 @@ end
 
 gem 'bootstrap'
 gem 'bootstrap-sass'
+gem "ruby-openai"
