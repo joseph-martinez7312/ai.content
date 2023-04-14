@@ -2,7 +2,6 @@
   <td class="p-3 text-center border"><%= content_type.content_type %></td>
   <td class="p-3 text-center border"><%= content_type.description %></td>
   <td class="p-3 text-center border"><%= content_type.template %></td>
-  <td class="p-3 text-center border"><%= link_to "Show", content_type_path(content_type), class: "btn btn-primary" %></td>
   <td class="p-3 text-center border"><%= link_to "Edit", edit_content_type_path(content_type), class: "btn btn-primary mr-1" %></td>
   <td class="p-3 text-center border"><%= link_to "Delete", content_type_path(content_type), method: :delete, class: "btn btn-primary", data: { turbo_confirm: t("are_you_sure") } %></td>
 </tr>

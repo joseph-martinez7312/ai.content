@@ -1,12 +1,12 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Content Types / <%= link_to "New Content Type", new_content_type_path, class: "btn btn-primary" %></h1>
+<h1>Content Types / <%= link_to "New Content Type", new_content_type_path, class: "btn btn-primary" %></h1><br><br>
 
 <div id="contents">
   <table class="table">
     <thead>
       <tr>
-        <th class="text-center">Content Type</th>
+        <th class="text-center">Type</th>
         <th class="text-center">Description</th>
         <th class="text-center">Template</th>
         <th class="text-center">Show</th>
@@ -16,7 +16,15 @@
     </thead>
     <tbody>
       <% @content_types.each do |content_type| %>
-        <%= render content_type %>
+        <tr>
+          <td class="p-3 text-center border"><%= content_type.content_type %></td>
+          <td class="p-3 text-center border"><%= content_type.description %></td>
+          <td class="p-3 text-center border"><%= content_type.template %></td>
+          <td class="p-3 text-center border"><%= link_to "Show", content_type_path(content_type), class: "btn btn-primary" %></td>
+          <td class="p-3 text-center border"><%= link_to "Edit", edit_content_type_path(content_type), class: "btn btn-primary mr-1" %></td>
+          <td class="p-3 text-center border"><%= link_to "Delete", content_type_path(content_type), method: :delete, class: "btn btn-primary", data: { turbo_confirm: t("are_you_sure") } %></td>
+        </tr>
+
       <% end %>
     </tbody>
   </table>

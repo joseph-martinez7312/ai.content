@@ -1,45 +1,51 @@
-<%= form_with(model: content) do |f| %>
-  <% if content.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(content.errors.count, "error") %> prohibited this content from being saved:</h2>
+<div class="row">
+  <div class="container">
+    <div class="col-md-6">
+      <%= form_with(model: content) do |f| %>
+        <% if content.errors.any? %>
+          <div style="color: red">
+            <h2><%= pluralize(content.errors.count, "error") %> prohibited this content from being saved:</h2>
 
-      <ul>
-        <% content.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+            <ul>
+              <% content.errors.each do |error| %>
+                <li><%= error.full_message %></li>
+              <% end %>
+            </ul>
+          </div>
         <% end %>
-      </ul>
+
+        <div class="form-group">
+          <br><%= f.label 'Who is your ideal customer?' %>
+          <%= f.text_area :business_ideal_customer, class: 'form-control', required: true, placeholder: "Describe your ideal customer, where there is a perfect fit between their needs and the service or products your business provides." %>
+        </div>
+
+        <div class="form-group">
+          <br><%= f.label 'What problem do you solve for them?' %>
+          <%= f.text_area :business_problem_solved, class: 'form-control', required: true, placeholder: 'What specific problem do you solve for them that they cannot solve for themselves?' %>
+        </div>
+
+        <div class="form-group">
+          <br><%= f.label 'The top' %>
+          <%= f.select :topic_quantity, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], { prompt: "Select a Top" }, class: 'form-control', required: 'required' %>
+        </div>
+
+        <div class="form-group">
+          <br><%= f.label 'Content Type' %>
+          <%= f.select :content_topic, ['Problems', 'Secrets', 'Things'], { prompt: "Select a Topic" }, class: 'form-control', required: 'required' %>
+        </div>
+
+        <div class="form-group">
+          <br><%= f.label 'That every' %>
+          <%= f.text_area :business_customer_subtype, class: 'form-control', required: true, placeholder: 'Provide an example of the type of customer you are targeting with your message.' %>
+        </div>
+
+        <div class="form-group">
+          <br><%= f.label 'Needs to avoid/know/accomplish in order to.' %>
+          <%= f.text_area :business_customer_subtype_result, class: 'form-control', required: true, placeholder: 'Describe the perfect result if that customer were to hire you to solve the problem above.' %>
+        </div>
+
+        <br><%= f.submit 'Submit', class: 'btn btn-primary' %>
+      <% end %>
     </div>
-  <% end %>
-
-  <div class="form-group">
-    <%= f.label 'Who is your ideal customer?' %>
-    <%= f.text_area :business_ideal_customer, class: 'form-control', required: true, placeholder: "Describe your ideal customer, where there is a perfect fit between their needs and the service or products your business provides." %>
   </div>
-
-  <div class="form-group">
-    <%= f.label 'What problem do you solve for them?' %>
-    <%= f.text_area :business_problem_solved, class: 'form-control', required: true, placeholder: 'What specific problem do you solve for them that they cannot solve for themselves?' %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label 'The top' %>
-    <%= f.select :topic_quantity, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], { prompt: "Select a Top" }, class: 'form-control', required: 'required' %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label 'Content Type' %>
-    <%= f.select :content_topic, ['Problems', 'Secrets', 'Things'], { prompt: "Select a Topic" }, class: 'form-control', required: 'required' %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label 'That every' %>
-    <%= f.text_area :business_customer_subtype, class: 'form-control', required: true, placeholder: 'Provide an example of the type of customer you are targeting with your message.' %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label 'Needs to avoid/know/accomplish in order to.' %>
-    <%= f.text_area :business_customer_subtype_result, class: 'form-control', required: true, placeholder: 'Describe the perfect result if that customer were to hire you to solve the problem above.' %>
-  </div>
-
-  <%= f.submit 'Submit', class: 'btn btn-primary' %>
-<% end %>
+</div>

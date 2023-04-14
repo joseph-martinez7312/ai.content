@@ -72,5 +72,5 @@ group :test do
 end
 
 gem 'bootstrap'
-gem 'bootstrap-sass'
+gem 'figaro'
 gem "ruby-openai"

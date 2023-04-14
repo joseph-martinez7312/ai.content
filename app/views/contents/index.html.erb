@@ -1,13 +1,12 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Contents / <%= link_to "New content", new_content_path, class: "btn btn-primary" %></h1>
+<h1>Contents / <%= link_to "New content", new_content_path, class: "btn btn-primary" %></h1><br><br>
 
 <div id="contents">
   <table class="table">
     <thead>
       <tr>
         <th class="text-center">Content</th>
-        <th class="text-center">Generate Content</th>
         <th class="text-center">Show</th>
         <th class="text-center">Edit</th>
         <th class="text-center">Destroy</th>
@@ -15,7 +14,12 @@
     </thead>
     <tbody>
       <% @contents.each do |content| %>
-        <%= render content %>
+        <tr>
+          <td class="p-3 text-center border">The top <%= content.topic_quantity %> <%= content.content_topic %> that every <%= content.business_customer_subtype %> must know/avoid in order to <%= content.business_customer_subtype_result %></td>
+          <td class="p-3 text-center border"><%= link_to "Show", content_path(content), class: "btn btn-primary" %></td>
+          <td class="p-3 text-center border"><%= link_to "Edit", edit_content_path(content), class: "btn btn-primary mr-1" %></td>
+          <td class="p-3 text-center border"><%= link_to "Delete", content_path(content), method: :delete, class: "btn btn-primary", data: { turbo_confirm: t("are_you_sure") } %></td>
+        </tr>
       <% end %>
     </tbody>
   </table>

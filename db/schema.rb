@@ -16,16 +16,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_14_073849) do
 
   create_table "content_results", force: :cascade do |t|
     t.bigint "content_id", null: false
-    t.text "output_content"
+    t.text "output_content", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["content_id"], name: "index_content_results_on_content_id"
   end
 
   create_table "content_types", force: :cascade do |t|
-    t.string "content_type"
-    t.text "description"
-    t.text "template"
+    t.string "content_type", null: false
+    t.text "description", null: false
+    t.text "template", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

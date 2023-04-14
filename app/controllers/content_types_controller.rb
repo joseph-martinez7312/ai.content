@@ -51,6 +51,7 @@ class ContentTypesController < ApplicationController
   end
 
   private
+
     def set_content_type
       @content_type = ContentType.find(params[:id])
     end

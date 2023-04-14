@@ -5,7 +5,6 @@
       <%= submit_tag "Generate", class: "btn btn-primary" %>
     <% end %>     
   </td>
-  <td class="p-3 text-center border"><%= link_to "Show", content_path(content), class: "btn btn-primary" %></td>
   <td class="p-3 text-center border"><%= link_to "Edit", edit_content_path(content), class: "btn btn-primary mr-1" %></td>
   <td class="p-3 text-center border"><%= link_to "Delete", content_path(content), method: :delete, class: "btn btn-primary", data: { turbo_confirm: t("are_you_sure") } %></td>
 </tr>
