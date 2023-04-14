@@ -18,7 +18,7 @@
           <td class="p-3 text-center border">The top <%= content.topic_quantity %> <%= content.content_topic %> that every <%= content.business_customer_subtype %> must know/avoid in order to <%= content.business_customer_subtype_result %></td>
           <td class="p-3 text-center border"><%= link_to "Show", content_path(content), class: "btn btn-primary" %></td>
           <td class="p-3 text-center border"><%= link_to "Edit", edit_content_path(content), class: "btn btn-primary mr-1" %></td>
-          <td class="p-3 text-center border"><%= link_to "Delete", content_path(content), method: :delete, class: "btn btn-primary", data: { turbo_confirm: t("are_you_sure") } %></td>
+          <td class="p-3 text-center border"><%= button_to "Delete", content_path(content), method: :delete, class: "btn btn-primary" %></td>
         </tr>
       <% end %>
     </tbody>

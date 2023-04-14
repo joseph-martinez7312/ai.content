@@ -21,6 +21,8 @@
 
 # Setup Instructions
   - Clone the zip
+  - place your application.yml in /config
+  - Set open_ai_access_token and ai_model
   - Run your docke-deamon
   - Run docker-compose build
   - Run docker-compose up
