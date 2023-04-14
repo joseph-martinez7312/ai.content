@@ -13,20 +13,20 @@
 
   <div>
     <%= form.label :content_type, style: "display: block" %>
-    <%= form.text_field :content_type %>
+    <%= form.text_field :content_type, class: 'form-control', required: true %>
   </div>
 
   <div>
     <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
+    <%= form.text_area :description, class: 'form-control', required: true %>
   </div>
 
   <div>
     <%= form.label :template, style: "display: block" %>
-    <%= form.text_area :template %>
+    <%= form.text_area :template, class: 'form-control', required: true %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit class: 'btn btn-primary' %>
   </div>
 <% end %>

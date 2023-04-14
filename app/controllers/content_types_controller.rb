@@ -1,25 +1,20 @@
 class ContentTypesController < ApplicationController
   before_action :set_content_type, only: %i[ show edit update destroy ]
 
-  # GET /content_types or /content_types.json
   def index
     @content_types = ContentType.all
   end
 
-  # GET /content_types/1 or /content_types/1.json
   def show
   end
 
-  # GET /content_types/new
   def new
     @content_type = ContentType.new
   end
 
-  # GET /content_types/1/edit
   def edit
   end
 
-  # POST /content_types or /content_types.json
   def create
     @content_type = ContentType.new(content_type_params)
 
@@ -34,7 +29,6 @@ class ContentTypesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /content_types/1 or /content_types/1.json
   def update
     respond_to do |format|
       if @content_type.update(content_type_params)
@@ -47,7 +41,6 @@ class ContentTypesController < ApplicationController
     end
   end
 
-  # DELETE /content_types/1 or /content_types/1.json
   def destroy
     @content_type.destroy
 
@@ -58,12 +51,10 @@ class ContentTypesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_content_type
       @content_type = ContentType.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def content_type_params
       params.require(:content_type).permit(:content_type, :description, :template)
     end

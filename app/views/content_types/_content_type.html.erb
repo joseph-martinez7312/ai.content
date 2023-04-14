@@ -1,17 +1,8 @@
-<div id="<%= dom_id content_type %>">
-  <p>
-    <strong>Content type:</strong>
-    <%= content_type.content_type %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= content_type.description %>
-  </p>
-
-  <p>
-    <strong>Template:</strong>
-    <%= content_type.template %>
-  </p>
-
-</div>
+<tr>
+  <td class="p-3 text-center border"><%= content_type.content_type %></td>
+  <td class="p-3 text-center border"><%= content_type.description %></td>
+  <td class="p-3 text-center border"><%= content_type.template %></td>
+  <td class="p-3 text-center border"><%= link_to "Show", content_type_path(content_type), class: "btn btn-primary" %></td>
+  <td class="p-3 text-center border"><%= link_to "Edit", edit_content_type_path(content_type), class: "btn btn-primary mr-1" %></td>
+  <td class="p-3 text-center border"><%= link_to "Delete", content_type_path(content_type), method: :delete, class: "btn btn-primary", data: { turbo_confirm: t("are_you_sure") } %></td>
+</tr>

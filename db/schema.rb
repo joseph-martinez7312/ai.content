@@ -10,9 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_14_071545) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_14_073849) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "content_results", force: :cascade do |t|
+    t.bigint "content_id", null: false
+    t.text "output_content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["content_id"], name: "index_content_results_on_content_id"
+  end
 
   create_table "content_types", force: :cascade do |t|
     t.string "content_type"
@@ -35,4 +43,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_14_071545) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "content_results", "contents"
 end

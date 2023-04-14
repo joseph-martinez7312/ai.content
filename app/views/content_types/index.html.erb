@@ -1,14 +1,23 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Content types</h1>
+<h1>Content Types / <%= link_to "New Content Type", new_content_type_path, class: "btn btn-primary" %></h1>
 
-<div id="content_types">
-  <% @content_types.each do |content_type| %>
-    <%= render content_type %>
-    <p>
-      <%= link_to "Show this content type", content_type %>
-    </p>
-  <% end %>
+<div id="contents">
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="text-center">Content Type</th>
+        <th class="text-center">Description</th>
+        <th class="text-center">Template</th>
+        <th class="text-center">Show</th>
+        <th class="text-center">Edit</th>
+        <th class="text-center">Destroy</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @content_types.each do |content_type| %>
+        <%= render content_type %>
+      <% end %>
+    </tbody>
+  </table>
 </div>
-
-<%= link_to "New content type", new_content_type_path %>
