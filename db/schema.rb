@@ -10,8 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 0) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_14_062602) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "contents", force: :cascade do |t|
+    t.text "business_ideal_customer"
+    t.text "business_problem_solved"
+    t.string "output_language"
+    t.string "content_topic"
+    t.integer "topic_quantity"
+    t.text "business_customer_subtype"
+    t.string "business_customer_subtype_needs"
+    t.text "business_customer_subtype_result"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end

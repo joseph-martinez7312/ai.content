@@ -1,0 +1,22 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Contents / <%= link_to "New content", new_content_path, class: "btn btn-primary" %></h1>
+
+<div id="contents">
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="text-center">Content</th>
+        <th class="text-center">Generate Content</th>
+        <th class="text-center">Show</th>
+        <th class="text-center">Edit</th>
+        <th class="text-center">Destroy</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @contents.each do |content| %>
+        <%= render content %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
